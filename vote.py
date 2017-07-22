@@ -59,6 +59,7 @@ def choose_proxy():
     k = random.randint(0, len(proxies)-1)
     current_num = k
     current_proxy = proxies[k]
+    proxies.pop(k)
     return current_proxy
 
 
