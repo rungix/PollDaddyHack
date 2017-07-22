@@ -75,13 +75,16 @@ def vote_once(form, value):
         url = "https://" + c_ip + '/poll/' + str(form) + "/";
         print(">>>>> " + url)
         init = c.get(url, headers=redirect, verify=False, timeout=timeout)
+        cookie_str = init.headers['Set-Cookie']
+        # print("Cookie: " + cookie_str)
     except requests.ConnectionError, e:
         print(e)
         #proxies.remove(current_proxy_num)
         return None
+    except Exception as err:
+        print(err)
+        return None
 
-    cookie_str = init.headers['Set-Cookie']
-    # print("Cookie: " + cookie_str)
 
 
 
